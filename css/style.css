@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&family=Peralta&display=swap');
+
+:root{
+    --my-padding:0.4rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Peralta', cursive;
+}
+
+.container {
+    color: rgb(5, 5, 5);
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1.5fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "nav sidebar"
+    "main main"
+    "main main"
+    "main main"
+    "content1 content3"
+    "content1 content2"
+    "content1 content2"
+    "footer footer";
+    height: 100vh;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+nav { 
+    background-color: black;
+    color: white;
+    border-bottom: none;
+    grid-area: nav;
+    padding: var(--my-padding);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.nav-container{ 
+    color: white;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: 100%;
+    grid-template-columns: repeat (4, 1fr);
+    grid-template-rows: 1fr;
+    transition: all 0.3s ease;
+}
+
+.nav-container:hover {
+    background-color: gray;
+    color: black;
+}
+
+.nav-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.content1 {
+    align-items: center;
+    display: grid;
+    font-size: 26px;
+    font-weight: bold;
+    background-color: rgb(143, 3, 3);
+    grid-area: content1;
+    padding: var(--my-padding);
+}
+
+.content2 {
+    align-items: center;
+    display: grid;
+    background-color: rgb(16, 230, 80);
+    font-size: 26px;
+    font-weight: bold;
+    grid-area: content2;
+    padding:var(--my-padding);
+}
+
+.content3 {
+    font-size: 26px;
+    font-weight: bold;
+    align-items: center;
+    display: grid;
+    background-color: rgb(180, 178, 178);
+    grid-area: content3;
+    padding: var(--my-padding);
+}
+
+.sidebar {
+    font-size: 26px;
+    font-weight: bold;
+    align-items: center;
+    display: grid;
+    background-color: red;
+    grid-area: sidebar;
+    padding: var(--my-padding);
+}
+
+main {
+    font-size: 26px;
+    font-weight: bold;
+    align-items: center;
+    display: grid;
+    background-color: slategrey;
+    grid-area: main;
+    padding: var(--my-padding);
+}
+
+footer {
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+    grid-area: footer;
+    padding: var(--my-padding);
+}
+
+@media (max-width:1024px) {
+    .nav-container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .container{
+        gap: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+        "nav nav nav"
+        "main main main"
+        "sidebar content1 content1"
+        "sidebar content1 content1"
+        "sidebar footer footer"
+        "sidebar content2 content3";
+            ;
+    } 
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+
+    .container {
+        gap: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas:
+        "nav"
+        "sidebar"
+        "main"
+        "content1"
+        "footer"
+        "content2"
+        "content3";
+    } 
+}
